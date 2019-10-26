@@ -21,6 +21,7 @@ subject to the following restrictions:
 #include "BulletCollision/BroadphaseCollision/btCollisionAlgorithm.h"
 #include "BulletCollision/CollisionShapes/btCollisionShape.h"
 #include "BulletCollision/CollisionDispatch/btSimulationIslandManager.h"
+#include "BulletCollision/CollisionDispatch/CustomMaterialCallback.h"
 #include "LinearMath/btTransformUtil.h"
 #include "LinearMath/btQuickprof.h"
 
@@ -45,6 +46,7 @@ subject to the following restrictions:
 #include "LinearMath/btMotionState.h"
 
 #include "LinearMath/btSerializer.h"
+
 
 #if 0
 btAlignedObjectArray<btVector3> debugContacts;
@@ -224,6 +226,8 @@ btDiscreteDynamicsWorld::btDiscreteDynamicsWorld(btDispatcher* dispatcher, btBro
 		void* mem = btAlignedAlloc(sizeof(InplaceSolverIslandCallback), 16);
 		m_solverIslandCallback = new (mem) InplaceSolverIslandCallback(m_constraintSolver, 0, dispatcher);
 	}
+
+	gContactAddedCallback = CustomMaterialCombinerCallback;
 }
 
 btDiscreteDynamicsWorld::~btDiscreteDynamicsWorld()
