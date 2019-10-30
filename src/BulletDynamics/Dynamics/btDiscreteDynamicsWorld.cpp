@@ -49,6 +49,8 @@ subject to the following restrictions:
 
 #include "LinearMath/btSerializer.h"
 
+#include "BulletCollision/CollisionDispatch/CustomMaterialCallback.h"
+
 #if 0
 btAlignedObjectArray<btVector3> debugContacts;
 btAlignedObjectArray<btVector3> debugNormals;
@@ -235,6 +237,8 @@ m_latencyMotionStateInterpolation(true)
 		void* mem = btAlignedAlloc(sizeof(InplaceSolverIslandCallback),16);
 		m_solverIslandCallback = new (mem) InplaceSolverIslandCallback (m_constraintSolver, 0, dispatcher);
 	}
+
+	gContactAddedCallback = CustomMaterialCombinerCallback;
 }
 
 
