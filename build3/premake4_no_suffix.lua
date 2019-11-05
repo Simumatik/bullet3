@@ -9,7 +9,8 @@
 
 	-- Multithreaded compiling
 	if _ACTION == "vs2010" or _ACTION=="vs2008" then
-		buildoptions { "/MP"  }
+		buildoptions { "/MD"  }
+		--buildoptions { "/MP"  }
 	end
 
 	act = ""
