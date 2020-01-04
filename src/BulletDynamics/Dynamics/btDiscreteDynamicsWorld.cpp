@@ -238,7 +238,7 @@ m_latencyMotionStateInterpolation(true)
 		m_solverIslandCallback = new (mem) InplaceSolverIslandCallback (m_constraintSolver, 0, dispatcher);
 	}
 
-	gContactAddedCallback = CustomMaterialCombinerCallback;
+	gContactProcessedCallback = CustomMaterialCombinerCallback;
 }
 
 

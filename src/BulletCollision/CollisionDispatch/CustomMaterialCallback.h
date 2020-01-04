@@ -45,7 +45,7 @@ public:
 
 };
 
-static bool CustomMaterialCombinerCallback(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1)
+static bool CustomMaterialCombinerCallback(btManifoldPoint& cp, void* body0, void* body1)
 {
 	// Find material to modify cp
 	btCustomMaterial* material = NULL;
@@ -53,7 +53,7 @@ static bool CustomMaterialCombinerCallback(btManifoldPoint& cp, const btCollisio
 	const btCollisionObject* obj;
 
 	// Check if Object 0 has custom material (Usually this is executed)
-	obj = colObj0Wrap->getCollisionObject();
+	obj = (btCollisionObject*) body0;
 	material = (btCustomMaterial*) obj->getUserPointer();
 	if (material != NULL)
 	{
@@ -68,7 +68,7 @@ static bool CustomMaterialCombinerCallback(btManifoldPoint& cp, const btCollisio
 	}
 	
 	// If not, has Object 1 custom material?
-	obj = colObj1Wrap->getCollisionObject();
+	obj = (btCollisionObject*) body1;
 	material = (btCustomMaterial*) obj->getUserPointer();
 	if (material != NULL)
 	{
