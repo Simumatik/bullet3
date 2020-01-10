@@ -58,7 +58,7 @@ static bool CustomMaterialCombinerCallback(btManifoldPoint& cp, void* body0, voi
 	if (material != NULL)
 	{
 		// Motion Friction Speed
-		cp.m_lateralFrictionInitialized = true;
+		//cp.m_lateralFrictionInitialized = true;
 		// Motion Friction Direction
 		cp.m_lateralFrictionDir1 = quatRotate(obj->getWorldTransform().getRotation(), material->m_lateralFrictionDir1);
 		cp.m_contactMotion1 = - material->m_contactMotion1;
@@ -72,7 +72,7 @@ static bool CustomMaterialCombinerCallback(btManifoldPoint& cp, void* body0, voi
 	material = (btCustomMaterial*) obj->getUserPointer();
 	if (material != NULL)
 	{
-		cp.m_lateralFrictionInitialized = true;
+		//cp.m_lateralFrictionInitialized = true;
 		// Motion Friction Direction
 		cp.m_lateralFrictionDir1 = quatRotate(obj->getWorldTransform().getRotation(), material->m_lateralFrictionDir1);
 		cp.m_contactMotion1 = material->m_contactMotion1;
