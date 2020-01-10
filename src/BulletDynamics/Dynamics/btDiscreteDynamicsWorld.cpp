@@ -24,6 +24,7 @@ subject to the following restrictions:
 #include "BulletCollision/CollisionDispatch/btSimulationIslandManager.h"
 #include "LinearMath/btTransformUtil.h"
 #include "LinearMath/btQuickprof.h"
+#include "BulletCollision/CollisionDispatch/CustomMaterialCallback.h"
 
 //rigidbody & constraints
 #include "BulletDynamics/Dynamics/btRigidBody.h"
@@ -237,7 +238,7 @@ m_latencyMotionStateInterpolation(true)
 		void* mem = btAlignedAlloc(sizeof(InplaceSolverIslandCallback),16);
 		m_solverIslandCallback = new (mem) InplaceSolverIslandCallback (m_constraintSolver, 0, dispatcher);
 	}
-
+	
 	gContactAddedCallback = CustomMaterialCombinerCallback;
 }
 

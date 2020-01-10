@@ -1,4 +1,5 @@
-
+#ifndef BTCUSTOMMATERIAL_H
+#define BTCUSTOMMATERIAL_H
 
 #include "LinearMath/btTransform.h"
 #include "BulletCollision/CollisionDispatch/btCollisionObjectWrapper.h"
@@ -82,3 +83,4 @@ static bool CustomMaterialCombinerCallback(btManifoldPoint& cp, const btCollisio
 	}
     return false;
 }
+#endif

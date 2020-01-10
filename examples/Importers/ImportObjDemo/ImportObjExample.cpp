@@ -59,8 +59,8 @@ void ImportObjSetup::initPhysics()
 	m_dynamicsWorld->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
 
 
-   const char* fileName = "cube.obj";//sphere8.obj";//sponza_closed.obj";//sphere8.obj";
-        char relativeFileName[1024];
+	const char* fileName = "sponza_closed.obj";//"sphere8.obj";//"cube.obj";//sphere8.obj";//sphere8.obj";
+	char relativeFileName[1024];
         if (b3ResourcePath::findResourcePath(fileName, relativeFileName, 1024))
         {
                 char pathPrefix[1024];
